@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include rights_management *.css
+recursive-include rights_management *.csv
+recursive-include rights_management *.html
+recursive-include rights_management *.ico
+recursive-include rights_management *.js
+recursive-include rights_management *.json
+recursive-include rights_management *.md
+recursive-include rights_management *.png
+recursive-include rights_management *.py
+recursive-include rights_management *.svg
+recursive-include rights_management *.txt
+recursive-exclude rights_management *.pyc
