@@ -14,13 +14,12 @@ app_license = "MIT"
 # Includes in <head>
 # ------------------
 
-# include js, css files in header of desk.html
-# app_include_css = "/assets/rights_management/css/rights_management.css"
-# app_include_js = "/assets/rights_management/js/rights_management.js"
+app_include_css = "assets/css/custom-desk.css"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/rights_management/css/rights_management.css"
-# web_include_js = "/assets/rights_management/js/rights_management.js"
+# web_include_css = "/assets/prd_service/css/prd_service.css"
+web_include_js = "assets/js/custom-web.js"
+
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}

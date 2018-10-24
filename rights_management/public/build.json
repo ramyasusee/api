@@ -1,0 +1,9 @@
+{
+"css/custom-desk.css": [
+"public/css/custom-desk.css"
+],
+ "js/custom-web.js": [
+        "public/js/custom-web.js"
+]
+}
+

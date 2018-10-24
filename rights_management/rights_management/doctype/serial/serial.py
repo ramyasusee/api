@@ -6,6 +6,6 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 
-class Movies(Document):
+class Serial(Document):
 	def autoname(self):
 		self.name = self.title + " ("+self.year_of_release+")"
