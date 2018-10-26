@@ -5,8 +5,11 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-from frappe.model.naming import make_autoname
 
-class Sales(Document):
+class Purchase(Document):
 	def autoname(self):
-		self.name = make_autoname('S-.YY.-.MM.-.####')
+		self.current_title = self.title + " - " +str(self.agreement_date)
+
+	def validate(self):
+		if not self.movie and not self.sfc:
+			frappe.throw(_(self.type + " is mandatory"))

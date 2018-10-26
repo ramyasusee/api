@@ -2,15 +2,15 @@
 // rename this file from _test_[name] to test_[name] to activate
 // and remove above this line
 
-QUnit.test("test: Serial", function (assert) {
+QUnit.test("test: Short Format Content", function (assert) {
 	let done = assert.async();
 
 	// number of asserts
 	assert.expect(1);
 
 	frappe.run_serially([
-		// insert a new Serial
-		() => frappe.tests.make('Serial', [
+		// insert a new Short Format Content
+		() => frappe.tests.make('Short Format Content', [
 			// values to be set
 			{key: 'value'}
 		]),

@@ -5,8 +5,6 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-from frappe.model.naming import make_autoname
 
-class Sales(Document):
-	def autoname(self):
-		self.name = make_autoname('S-.YY.-.MM.-.####')
+class SeasonsTable(Document):
+	pass

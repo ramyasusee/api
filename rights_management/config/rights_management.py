@@ -12,11 +12,11 @@ def get_data():
 					},
 					{
 						"type": "doctype",
-						"name": "Serial"
+						"name": "Short Format Content"
 					},
 					{
 						"type": "doctype",
-						"name": "Rights"
+						"name": "Purchase"
 					},
 					{
 						"type": "doctype",
