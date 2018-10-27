@@ -60,7 +60,7 @@ web_include_js = "assets/js/custom-web.js"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-# notification_config = "rights_management.notifications.get_notification_config"
+notification_config = "rights_management.rights_management.notifications.get_config"
 
 # Permissions
 # -----------

@@ -114,5 +114,21 @@ def get_data():
 			"icon": "fa fa-certificate",
 			"type": "link",
 			"link": "List/Platforms/List",
+		},
+		{
+			"module_name": "Rights",
+			"_doctype": "Rights",
+			"color": "#D81159",
+			"icon": "fa fa-check-square",
+			"type": "link",
+			"link": "List/Rights/List",
+		},
+		{
+			"module_name": "Buyer",
+			"_doctype": "Buyer",
+			"color": "#FFBC42",
+			"icon": "fa fa-shopping-cart",
+			"type": "link",
+			"link": "List/Buyer/List",
 		}
 	]

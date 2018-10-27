@@ -46,6 +46,10 @@ def get_data():
 					{
 						"type": "doctype",
 						"name": "Stars"
+					},
+					{
+						"type": "doctype",
+						"name": "Buyer"
 					}
 				]
 			},
@@ -67,6 +71,10 @@ def get_data():
 					{
 						"type": "doctype",
 						"name": "Platforms"
+					},
+					{
+						"type": "doctype",
+						"name": "Rights"
 					}
 				]
 			}
