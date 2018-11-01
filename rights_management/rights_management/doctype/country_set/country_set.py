@@ -7,4 +7,6 @@ import frappe
 from frappe.model.document import Document
 
 class CountrySet(Document):
-	pass
+	def autoname(self):
+		l = [row.country for row in self.country_table]
+		self.name = ', '.join(l)

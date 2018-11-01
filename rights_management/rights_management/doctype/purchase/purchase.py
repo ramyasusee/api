@@ -21,6 +21,10 @@ class Purchase(Document):
 				msgprint(_('Intermediary Sale is Applicable, and Link Agreement is ignored. Uncheck <b>Ignore Link Agreement</b> to upload a new agreement.'))
 		if self.release_date and self.expiry == "":
 			frappe.throw(_('Release date is specified as '+str(self.release_date)+'. Please choose an expiry term.'))
+		if not self.date_of_release:
+			self.yet_to_be_released = 1
+		else:
+			self.yet_to_be_released = 0
 
 	def is_intermediary_sale_applicable(self):
 		return self.production_banner != self.seller
