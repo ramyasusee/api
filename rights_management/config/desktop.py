@@ -108,12 +108,12 @@ def get_data():
 			"link": "List/Genre/List",
 		},
 		{
-			"module_name": "Platforms",
-			"_doctype": "Platforms",
+			"module_name": "Country Set",
+			"_doctype": "Country Set",
 			"color": "#FF5714",
-			"icon": "fa fa-certificate",
+			"icon": "fa fa-globe",
 			"type": "link",
-			"link": "List/Platforms/List",
+			"link": "List/Country Set/List",
 		},
 		{
 			"module_name": "Rights",
