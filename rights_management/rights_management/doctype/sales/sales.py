@@ -33,6 +33,10 @@ class Sales(Document):
 			if error != '':
 				error = error + "<p class=\"text-danger\">Please fix all the errors to save the document.</p>"
 				frappe.throw(_(error))
+		if self.date_of_agreement > self.license_starting_date:
+			frappe.throw(_("License must start only after the Date of Agreement."))
+		if self.license_starting_date >= self.license_ending_date:
+			frappe.throw(_("License ending date cannot be equal or before the license starting date."))
 		for file in file_list:
 			if self.type_of_content == "Movies":
 				purchases = frappe.get_all("Purchase", filters={'type': 'Movies', 'movie': file}, fields=['name'])
@@ -40,6 +44,16 @@ class Sales(Document):
 				purchases = frappe.get_all("Purchase", filters={'type': 'Short Format Content', 'sfc': file}, fields=['name'])
 			for purchase in purchases:
 				doc = frappe.get_doc("Purchase", purchase.name)
+				difby = False
+				err = "<p>Expected Seller: <b>"+self.seller+"</b>. You cannot sell movies from different seller names in one record. The following movies are from different sellers:</p><ol>"
+				if self.seller != doc.buyer:
+					difby = True
+					err += "<li>"+doc.title +" - "+ doc.buyer +"</li>"
+				if difby:
+					err = err + "</ol> <p class=\"text-danger\">Please fix all errors to save the record.</p>"
+				if self.license_ending_date:
+					if self.license_ending_date > doc.expiry_date:
+						frappe.throw(_('<b>'+doc.current_title +"</b> has an expiry of <b>"+str(doc.expiry_date)+"</b> while the current sale expires on <b>"+str(self.license_ending_date)+"</b>. Please fix the license dates."))
 				validate_rights(doc.purchased_rights, self.platform_rights, doc.title)
 
 def validate_rights(superset, subset, title):
