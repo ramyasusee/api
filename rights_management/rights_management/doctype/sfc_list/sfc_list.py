@@ -5,10 +5,6 @@
 from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
-import frappe.model.rename_doc as rd
 
-class CountrySet(Document):
-	def autoname(self):
-		l = [row.country for row in self.country_table]
-		self.name = ', '.join(l)
-
+class SFCList(Document):
+	pass

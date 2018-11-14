@@ -6,5 +6,5 @@ from __future__ import unicode_literals
 import frappe
 from frappe.model.document import Document
 
-class CountriesSet(Document):
+class SongList(Document):
 	pass

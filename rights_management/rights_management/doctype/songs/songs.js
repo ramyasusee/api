@@ -1,7 +1,7 @@
 // Copyright (c) 2018, Aftertutor Ventures Pvt Ltd and contributors
 // For license information, please see license.txt
 
-frappe.ui.form.on('Countries Set', {
+frappe.ui.form.on('Songs', {
 	refresh: function(frm) {
 
 	}

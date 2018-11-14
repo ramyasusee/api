@@ -16,9 +16,9 @@ class Movies(Document):
 		title = self.final_title or self.temp_title
 		name = ""
 		if self.date_of_release:
-			name = title + " ("+str(self.date_of_release)[:4]+")"
+			name = title + " ("+str(self.date_of_release)[:4]+", "+self.title_language+")"
 		else:
-			name = title + " (YTR)"
+			name = title + " (YTR, "+self.title_language+")"
 		self.title = name
 
 
