@@ -106,7 +106,7 @@ def validate_rights(superset, subset, title):
 			for pr in primary:
 				if sec.get('right') == pr.get('right'):
 					if sec.get('type') == "Exclusion" and pr.get('type') == "Inclusion":
-						error = error + "<p>In <b>"+sec.get('right')+"</b> right, you cannot sell an <b>Exclusion</b> when the you only have <b>Inclusion</b> with these countries:</p><ol>"
+						error = error + "<p>In <b>"+sec.get('right')+"</b> right, you cannot sell an <b>Exclusion</b> when you only have <b>Inclusion</b> with these countries:</p><ol>"
 						included_counties = pr.get('cset')
 						for country in list(included_counties):
 							error = error + "<li>"+country+"</li>"
