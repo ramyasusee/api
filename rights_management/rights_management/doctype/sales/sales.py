@@ -133,6 +133,6 @@ def validate_rights(superset, subset, title):
 								error = error + "<li>"+country+"</li>"
 							error = error + "</ol>"
 		if error != '':
-			error = 'For <b>'+title+'</b>' +error + "<p class=\"text-danger\">Please fix all the errors to save the document.</p><hr>"
+			error = 'For <b>'+title+'</b>' +error + "<p class=\"text-danger\">Please fix all the errors to save the document.</p>"
 			frappe.throw(_(error))
 
