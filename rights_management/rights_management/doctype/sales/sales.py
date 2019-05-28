@@ -82,7 +82,8 @@ def validate_rights(superset, subset, title):
 		primary = list()
 		for row in superset:
 			cset = list()
-			for country in row.c_set.split(','):
+			cset_doc = frappe.get_doc('Country Set', row.c_set)
+			for country in cset_doc.title.split(','):
 				cset.append(country.strip())
 			primary.append({
 				"right": row.right,
@@ -93,7 +94,8 @@ def validate_rights(superset, subset, title):
 		secondary = list()
 		for row in subset:
 			cset = list()
-			for country in row.c_set.split(','):
+			cset_doc = frappe.get_doc('Country Set', row.c_set)
+			for country in cset_doc.title.split(','):
 				cset.append(country.strip())
 			secondary.append({
 				"right": row.right,

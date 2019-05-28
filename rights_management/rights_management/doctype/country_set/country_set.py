@@ -8,7 +8,15 @@ from frappe.model.document import Document
 import frappe.model.rename_doc as rd
 
 class CountrySet(Document):
-	def autoname(self):
+	def validate(self):
 		l = [row.country for row in self.country_table]
-		self.name = ', '.join(l)
+		self.title = ', '.join(l)
 
+def add_world():
+	world = frappe.new_doc('Country Set')
+	world.title = 'Entire World'
+	cs = frappe.get_all('Countries')
+	for c in cs:
+		world.append('country_table', {'country': c.name})
+		print('Adding: '+c.name)
+	world.save()
