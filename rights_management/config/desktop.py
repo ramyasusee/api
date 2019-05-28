@@ -130,5 +130,30 @@ def get_data():
 			"icon": "fa fa-shopping-cart",
 			"type": "link",
 			"link": "List/Buyer/List",
+		},
+		{
+			"module_name": "Purchase Report Attachment Filter",
+			"_doctype": "Purchase",
+			"color": "#FFBC42",
+			"icon": "fa fa-flag",
+			"type": "link",
+			"link": "query-report/Purchase Report Attachment Filter"
+		},
+		{
+			"module_name": "Sales Report For Attachment Filter",
+			"_doctype": "Sales",
+			"color": "#FFBC42",
+			"icon": "fa fa-flag",
+			"type": "link",
+			"link": "query-report/Sales Report For Attachment Filter"
+		},
+		{
+			"module_name": "Primary Rights",
+			"_doctype": "Purchase",
+			"color": "#FFBC42",
+			"icon": "fa fa-flag",
+			"type": "link",
+			"link": "query-report/Primary Rights"
 		}
+
 	]

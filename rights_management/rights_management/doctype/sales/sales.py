@@ -7,6 +7,7 @@ import frappe
 from frappe.model.document import Document
 from frappe.model.naming import make_autoname
 from frappe import _,msgprint
+import frappe.utils.data as utils
 
 class Sales(Document):
 	def validate(self):
@@ -42,6 +43,8 @@ class Sales(Document):
 				purchases = frappe.get_all("Purchase", filters={'type': 'Movies', 'movie': file}, fields=['name'])
 			if self.type_of_content == "Short Format Content":
 				purchases = frappe.get_all("Purchase", filters={'type': 'Short Format Content', 'sfc': file}, fields=['name'])
+
+			purchased_rights = list()
 			for purchase in purchases:
 				doc = frappe.get_doc("Purchase", purchase.name)
 				difby = False
@@ -52,9 +55,18 @@ class Sales(Document):
 				if difby:
 					err = err + "</ol> <p class=\"text-danger\">Please fix all errors to save the record.</p>"
 				if self.license_ending_date:
-					if self.license_ending_date > doc.expiry_date:
+					if doc.expiry == 'Specific' and utils.getdate(self.license_ending_date) > doc.expiry_date:
 						frappe.throw(_('<b>'+doc.current_title +"</b> has an expiry of <b>"+str(doc.expiry_date)+"</b> while the current sale expires on <b>"+str(self.license_ending_date)+"</b>. Please fix the license dates."))
-				validate_rights(doc.purchased_rights, self.platform_rights, doc.title)
+					if doc.expiry == 'Perpetual' and utils.getdate(self.license_ending_date) > utils.add_to_date(utils.getdate(doc.agreement_date), years=99):
+						frappe.throw(_('<b>'+doc.current_title +"</b> has an <b>Perpetual</b> expiry of <b>"+str(utils.add_to_date(doc.agreement_date, years=99))+"</b> while the current sale expires on <b>"+str(self.license_ending_date)+"</b>. Please fix the license dates."))
+				purchased_rights.extend(doc.purchased_rights)
+			valid = validate_rights(purchased_rights, self.platform_rights, doc.title)
+			if valid:
+				frappe.msgprint(_('All the rights are matched perfectly. You are good to go :)'))
+			else:
+				frappe.msgprint(_('Please fix all the errors to finalize sale.'))
+
+
 
 def validate_rights(superset, subset, title):
 	superset_rights = list()
@@ -83,7 +95,10 @@ def validate_rights(superset, subset, title):
 		for row in superset:
 			cset = list()
 			cset_doc = frappe.get_doc('Country Set', row.c_set)
-			for country in cset_doc.title.split(','):
+			l = list()
+			for c in cset_doc.country_table:
+				l.append(c.country)
+			for country in l:
 				cset.append(country.strip())
 			primary.append({
 				"right": row.right,
@@ -95,7 +110,10 @@ def validate_rights(superset, subset, title):
 		for row in subset:
 			cset = list()
 			cset_doc = frappe.get_doc('Country Set', row.c_set)
-			for country in cset_doc.title.split(','):
+			l = list()
+			for c in cset_doc.country_table:
+				l.append(c.country)
+			for country in l:
 				cset.append(country.strip())
 			secondary.append({
 				"right": row.right,
@@ -137,4 +155,7 @@ def validate_rights(superset, subset, title):
 		if error != '':
 			error = 'For <b>'+title+'</b>' +error + "<p class=\"text-danger\">Please fix all the errors to save the document.</p>"
 			frappe.throw(_(error))
+			return False
+		else:
+			return True
 

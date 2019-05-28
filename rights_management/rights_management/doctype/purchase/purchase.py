@@ -22,7 +22,7 @@ class Purchase(Document):
 		if self.release_date and self.expiry == "":
 			frappe.throw(_('Release date is specified as '+str(self.release_date)+'. Please choose an expiry term.'))
 
-		if self.is_intermediary_sale_applicable():
+		if self.is_intermediary_sale_applicable() and not self.ignore_link_agreement:
 			if not self.intermediatory_expiry_date:
 				frappe.throw(_('Intermediary Sale is Applicable, but Intermediary Expiry Date is not provided.'))
 			if not self.intermediatory_date_of_agreement:
