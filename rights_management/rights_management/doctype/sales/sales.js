@@ -39,3 +39,30 @@ frappe.ui.form.on('Sales', {
 		}
 	},
 });
+
+
+frappe.ui.form.on('Platform Rights', {
+	right: function(frm, cdt, cdn){
+	    var child = locals[cdt][cdn];
+	    frappe.call({
+	        "method": "frappe.client.get",
+	        args:{
+	            "doctype": "Purchase",
+	            "name":frm. doc.purchase_id
+	        },
+	        callback: function(r){
+	            var pr = r.message.purchased_rights;
+                var pr_len = pr.length
+                var result = 0
+                for(var i = 0; i< pr_len;i++){
+                    if(child.right == pr[i].right){
+                        result = 1
+                    }
+                }
+                if(result == 0){
+                    frappe.msgprint("The Purchased Rights only be allowed to sale")
+                }
+	        }
+	    })
+	},
+})

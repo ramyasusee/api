@@ -73,8 +73,8 @@ def validate_rights(superset, subset, title):
 	subset_rights = list()
 
 	for row in superset:
-		if row.right in superset_rights:
-			frappe.throw(_("Duplicate entry: <b>"+row.right+"</b> in Primary Rights table on "+title)) #this is never likely to happen
+		#if row.right in superset_rights:
+			#frappe.throw(_("Duplicate entry: <b>"+row.right+"</b> in Primary Rights table on "+title)) #this is never likely to happen
 		superset_rights.append(row.right)
 
 	for row in subset:

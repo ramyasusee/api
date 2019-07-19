@@ -4,22 +4,23 @@ from . import __version__ as app_version
 
 app_name = "rights_management"
 app_title = "Rights Management"
-app_publisher = "Aftertutor Ventures Pvt Ltd"
-app_description = "Movie Rights Management for AP International"
-app_icon = "fa fa-film"
-app_color = "#4B3F72"
-app_email = "contact@atdigitals.com"
+app_publisher = "AT Digitals"
+app_description = "Rights management app for Home Screen Entertainment."
+app_icon = "octicon octicon-file-directory"
+app_color = "grey"
+app_email = "sidharth@aftertutor.com"
 app_license = "MIT"
 
 # Includes in <head>
 # ------------------
 
-app_include_css = "assets/css/custom-desk.css"
+# include js, css files in header of desk.html
+# app_include_css = "/assets/rights_management/css/rights_management.css"
+# app_include_js = "/assets/rights_management/js/rights_management.js"
 
 # include js, css files in header of web template
-# web_include_css = "/assets/prd_service/css/prd_service.css"
-web_include_js = "assets/js/custom-web.js"
-
+# web_include_css = "/assets/rights_management/css/rights_management.css"
+# web_include_js = "/assets/rights_management/js/rights_management.js"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
@@ -60,7 +61,7 @@ web_include_js = "assets/js/custom-web.js"
 # ------------------
 # See frappe.core.notifications.get_notification_config
 
-notification_config = "rights_management.rights_management.notifications.get_config"
+# notification_config = "rights_management.notifications.get_notification_config"
 
 # Permissions
 # -----------

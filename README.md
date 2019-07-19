@@ -1,6 +1,6 @@
 ## Rights Management
 
-Movie Rights Management for AP International
+Rights management app for Home Screen Entertainment.
 
 #### License
 

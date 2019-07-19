@@ -15,9 +15,9 @@ with open('rights_management/__init__.py', 'rb') as f:
 setup(
 	name='rights_management',
 	version=version,
-	description='Movie Rights Management for AP International',
-	author='Aftertutor Ventures Pvt Ltd',
-	author_email='contact@atdigitals.com',
+	description='Rights management app for Home Screen Entertainment.',
+	author='AT Digitals',
+	author_email='sidharth@aftertutor.com',
 	packages=find_packages(),
 	zip_safe=False,
 	include_package_data=True,
