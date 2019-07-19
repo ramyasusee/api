@@ -60,7 +60,7 @@ frappe.ui.form.on('Platform Rights', {
                     }
                 }
                 if(result == 0){
-                    frappe.msgprint("The Purchased Rights only be allowed to sale")
+                    frappe.msgprint("The Purchased Rights only allowed to sale")
                 }
 	        }
 	    })
