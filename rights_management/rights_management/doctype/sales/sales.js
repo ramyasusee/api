@@ -2,6 +2,15 @@
 // For license information, please see license.txt
 
 frappe.ui.form.on('Sales', {
+	onload: function (frm) {
+        frm.set_query("purchase_id", function () {
+            return {
+                "filters": {
+                    "movie": frm.doc.movie
+                }
+            };
+		});
+	},
 	type_of_content: function(frm) {
 		frm.set_value("title", null);
 		frm.set_value("title_language", null);
