@@ -8,15 +8,17 @@ frappe.query_reports["Sales Report For Attachment Filter"] = {
 			"fieldname": "sales_agreement_attachment",
 			"label": __("Sales Agreement"),
 			"fieldtype": "Select",
-			"options": ['', 'True', 'False'],
-			'default': ''
+			"options": ['', 'Yes', 'No'],
+			// 'default': '',
+			"reqd": 0
 		},
 		{
 			"fieldname": "sales_invoice_attachment",
 			"label": __("Sales Invoice"),
 			"fieldtype": "Select",
-			"options": ['', 'True', 'False'],
-			'default': ''
+			"options": ['', 'Yes', 'No'],
+			// 'default': '',
+			"reqd": 0
 		}
 
 	]

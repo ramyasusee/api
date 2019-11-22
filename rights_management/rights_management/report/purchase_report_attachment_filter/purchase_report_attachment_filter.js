@@ -8,28 +8,28 @@ frappe.query_reports["Purchase Report Attachment Filter"] = {
 			"fieldname": "lab_certificate_attachment",
 			"label": __("Lab Certificate"),
 			"fieldtype": "Select",
-			"options": ['', 'True', 'False'],
+			"options": ['', 'Yes', 'No'],
 			'default': ''
 		},
 		{
 			"fieldname": "main_agreement_attachment",
 			"label": __("Main Agreement"),
 			"fieldtype": "Select",
-			"options": ['', 'True', 'False'],
+			"options": ['', 'Yes', 'No'],
 			'default': ''
 		},
 		{
 			"fieldname": "censor_certificate_attachment",
 			"label": __("Censor Certificate"),
 			"fieldtype": "Select",
-			"options": ['', 'True', 'False'],
+			"options": ['', 'Yes', 'No'],
 			'default': ''
 		},
 		{
 			"fieldname": "real_image_letter_attachment",
 			"label": __("Real Image Letter"),
 			"fieldtype": "Select",
-			"options": ['', 'True', 'False'],
+			"options": ['', 'Yes', 'No'],
 			'default': ''
 		}
 	]

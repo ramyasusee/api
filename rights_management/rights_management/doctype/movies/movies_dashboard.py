@@ -8,11 +8,11 @@ def get_data():
 		'fieldname': 'movie',
 		'transactions': [
 			{
-				'label': _('Purchase'),
+				'label': _('Purchase Documents'),
 				'items': ['Purchase']
 			},
 			{
-				'label': _('Sales'),
+				'label': _('Sales Documents'),
 				'items': ['Sales']
 			},
 		]

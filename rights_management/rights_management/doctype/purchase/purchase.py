@@ -135,17 +135,4 @@ class Purchase(Document):
 
 
 
-@frappe.whitelist()
-def update_country_set_title():
-    purchase = frappe.get_list("Purchase", filters={}, fields=["name"])
-    for p in purchase:
-        doc = frappe.get_doc("Purchase", p.name)
-        child = doc.primary_rights
-        child_len = len(child)
-        i = 0
-        for i in range(child_len):
-            if not child[i].countries:
-                cs = frappe.get_doc("Country Set", child[i].c_set)
-                child[i].countries = cs.title
-                child[i].save(ignore_permissions=True)
-                frappe.db.commit()
+

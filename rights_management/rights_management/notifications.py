@@ -29,7 +29,7 @@ def update_purchases():
 			doc.autoname()
 			#print('Updating '+doc.name)
 			doc.save()
-		except Exception,e:
+		except Exception as e:
 			print('Error in '+doc.name+': '+str(e))
 			print('-----------------------------------------------------------------------------------')
 

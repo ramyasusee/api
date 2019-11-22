@@ -8,5 +8,11 @@ frappe.listview_settings['Movies'] = {
 		} else if (doc.status == "Cancelled") {
 			return [__("Cancelled"), "red", "status,=,Cancelled"];
 		}
-	}
+	},
+	onload: function (me) {
+		me.page.sidebar.find(".list-link[data-view='Kanban']").addClass("hide");
+		me.page.sidebar.find(".list-link[data-view='Calendar']").addClass("hide");
+        me.page.sidebar.find(".list-link[data-view='Tree']").addClass("hide");
+        me.page.sidebar.find(".assigned-to-me a").addClass("hide");
+    }
 };
